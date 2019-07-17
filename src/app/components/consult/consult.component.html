@@ -1,0 +1,22 @@
+<div>
+    Hello Boy
+  </div>
+  <hr />
+
+  <div>
+    <a [routerLink]="['/home']">主页面</a>
+    <input type="button" value="股票页面" (click)="toStock()" />
+
+    <!--子路由跳转的时候同时设置主路由的跳转-->
+    <a [routerLink]="[{outlets:{primary: ['home'], aux:['consult']}}]">咨询页面</a>
+
+    <!--关闭子路由-->
+    <a [routerLink]="[{outlets:{aux:null}}]">结束咨询</a>
+  </div>
+
+
+  <!--主路由-->
+  <router-outlet></router-outlet>
+
+  <!--辅助路由-->
+  <router-outlet name="aux"></router-outlet>
