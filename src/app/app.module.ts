@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import { MyModuleModule } from './modules/my-module/my-module.module';
 import { TestRouterModule } from './modules/test-router/test-router.module';
 import { HelloWorldComponent } from './components/hello-world/hello-world.component';
@@ -21,11 +22,19 @@ import { BuyerComponent } from './components/buyer/buyer.component';
 import { SellerComponent } from './components/seller/seller.component';
 import { Error404Component } from './components/error404/error404.component';
 import { ConsultComponent } from './components/consult/consult.component';
-import { Test01Component } from './components/router/test01/test01.component';
+// import { Test01Component } from './components/router/test01/test01.component';
 import { Test02Component } from './components/router/test02/test02.component';
 import { Test03Component } from './components/router/test03/test03.component';
 import { TestHomeComponent } from './components/router/test-home/test-home.component';
-
+import { CollectionComponent } from './components/contacts/collection/collection.component';
+import { ListComponent } from './components/contacts/list/list.component';
+import { DetailComponent } from './components/contacts/detail/detail.component';
+import { EditComponent } from './components/contacts/edit/edit.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { HeaderComponent } from './components/shared/header/header.component';
+import {ContactService} from './core/contacts/contact.service';
+import { ItemComponent } from './components/contacts/item/item.component';
+import {PhonePipeService} from './core/contacts/phone.pipe';
 /**
  *
  *
@@ -48,21 +57,31 @@ import { TestHomeComponent } from './components/router/test-home/test-home.compo
     SellerComponent,
     Error404Component,
     ConsultComponent,
-    Test01Component,
-    Test02Component,
-    Test03Component,
-    TestHomeComponent
+    // Test01Component,
+    // Test02Component,
+    // Test03Component,
+    // TestHomeComponent,
+    CollectionComponent,
+    ListComponent,
+    DetailComponent,
+    EditComponent,
+    FooterComponent,
+    HeaderComponent,
+    ItemComponent,
+    PhonePipeService
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     MyModuleModule,
     TestRouterModule
   ],
   providers: [
     { provide: 'auth', useClass: AuthService },
+    ContactService,
     // { provide: BASE_URL, useValue: 'http://localhost:3000/todos' }
   ],
   bootstrap: [AppComponent]
