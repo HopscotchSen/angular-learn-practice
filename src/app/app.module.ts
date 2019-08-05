@@ -1,13 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { CustomMaterialModule } from './modules/material/custom-material/custom-material.module';
+import { TodosModule } from './components/todos/todos.module';
 import { MyModuleModule } from './modules/my-module/my-module.module';
 import { TestRouterModule } from './modules/test-router/test-router.module';
+
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { HelloWorldComponent } from './components/hello-world/hello-world.component';
 import { UserItemComponent } from './components/user-item/user-item.component';
 import { UserListComponent } from './components/user-list/user-list.component';
@@ -32,9 +40,12 @@ import { DetailComponent } from './components/contacts/detail/detail.component';
 import { EditComponent } from './components/contacts/edit/edit.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HeaderComponent } from './components/shared/header/header.component';
-import {ContactService} from './core/contacts/contact.service';
+import { ContactService } from './core/contacts/contact.service';
 import { ItemComponent } from './components/contacts/item/item.component';
-import {PhonePipeService} from './core/contacts/phone.pipe';
+import { PhonePipeService } from './core/contacts/phone.pipe';
+// import { MediaQueryStatusComponent } from './components/utils/media-query-status/media-query-status.component';
+
+import 'hammerjs';
 /**
  *
  *
@@ -68,16 +79,14 @@ import {PhonePipeService} from './core/contacts/phone.pipe';
     FooterComponent,
     HeaderComponent,
     ItemComponent,
-    PhonePipeService
+    PhonePipeService,
+    // MediaQueryStatusComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpModule,
-    HttpClientModule,
-    MyModuleModule,
-    TestRouterModule
+    BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpModule, HttpClientModule,
+    FlexLayoutModule, BrowserAnimationsModule, CustomMaterialModule, TodosModule,
+    MyModuleModule, TestRouterModule, AkitaNgDevtools.forRoot()
+    // MaterialModule.forRoot(), // 为子组件引入Material
   ],
   providers: [
     { provide: 'auth', useClass: AuthService },
